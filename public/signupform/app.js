@@ -1,4 +1,15 @@
 
+
+
+
+
+
+
+
+
+
+
+
 const changePanel = () => {
   const signUpButton = document.getElementById("signUp");
   const signInButton = document.getElementById("signIn");
@@ -26,50 +37,54 @@ const empty = () => {
 }
 
 // ============function-onsignup==============
-const onSignUp = () => {
-//     var name = document.getElementById("name")
-//     var phone = document.getElementById("phone")
-//     var email = document.getElementById("email")
-//     var password = document.getElementById("password")
-//     var message = document.getElementById("login-success")
+// const onSignUp = () => {
+//   setTimeout(() => {
+//           message.innerHTML = "";
+//             location.href = "./home/index.html"
+//         },2000);
+// //     var name = document.getElementById("name")
+// //     var phone = document.getElementById("phone")
+// //     var email = document.getElementById("email")
+// //     var password = document.getElementById("password")
+// //     var message = document.getElementById("login-success")
 
-//     var user = {
-//         name:name.value,
-//        phone:phone.value,
-//         email:email.value,
-//         password:password.value
+// //     var user = {
+// //         name:name.value,
+// //        phone:phone.value,
+// //         email:email.value,
+// //         password:password.value
 
-//     }
-//     var users = JSON.parse(localStorage.getItem("users")) || [];
+// //     }
+// //     var users = JSON.parse(localStorage.getItem("users")) || [];
 
 
-//     var userIdx = users.findIndex(function (val) {
-//       return val.email.toLowerCase() === user.email.toLowerCase()
-//     });
+// //     var userIdx = users.findIndex(function (val) {
+// //       return val.email.toLowerCase() === user.email.toLowerCase()
+// //     });
 
-//       console.log(userIdx)
+// //       console.log(userIdx)
 
 
 
    
-// if (userIdx === -1) {
-//     message.innerHTML = " signup successful"
-//     users.push(user)
-//     setTimeout(() => {
-//       message.innerHTML = "";
-//         container.classList.remove("right-panel-active");
-//         location.href = "./home/index.html"
-//     },2000);
-//     localStorage.setItem("users", JSON.stringify(users))
+// // if (userIdx === -1) {
+// //     message.innerHTML = " signup successful"
+// //     users.push(user)
+// //     setTimeout(() => {
+// //       message.innerHTML = "";
+// //         container.classList.remove("right-panel-active");
+// //         location.href = "./home/index.html"
+// //     },2000);
+// //     localStorage.setItem("users", JSON.stringify(users))
    
   
-// }
-// else{
-//  message.innerHTML = user.email + " Use in another account"
+// // }
+// // else{
+// //  message.innerHTML = user.email + " Use in another account"
  
-// }
+// // }
 
-// }
+//  }
 
 //===============function-onlogin==============
 
