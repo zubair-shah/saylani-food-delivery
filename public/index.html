@@ -5,10 +5,148 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Delivery</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'>
+    <link rel="stylesheet" href="signupform/style.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script> -->
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<!-- <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script> -->
+<!-- 
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCyIRHWE7xXkoFOyR9DKiP8grBOCDlYs-A",
+    authDomain: "facebook-auth-and-todo.firebaseapp.com",
+    projectId: "facebook-auth-and-todo",
+    storageBucket: "facebook-auth-and-todo.appspot.com",
+    messagingSenderId: "218501258181",
+    appId: "1:218501258181:web:35ddfdd6ecb896322d49ac",
+    measurementId: "G-LL1VBL9H6B"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  console.log(firebase)
+</script> -->
+    
 </head>
 <body>
-    <h1>Bissmillah</h1>
-<h2>hello world</h2>
+
+    <!-- <div class="auth-form">
+        <label for="email">Email:</label>
+        <input type="text" id="emial">
+        <br>
+        <label for="password">Password:</label>
+        <input type="text" id="password">
+        <br>
+        <button>Sign In</button>
+        
+    </div> -->
+<!-- partial:index.partial.html -->
+
+<div class="container" id="container">
+  <div class="form-container sign-up-container">
+  
+    <form onsubmit="return false" id="signupForm">
+      <h1>Sign Up</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social"><i class="fab fa-google"></i></a>
+        <a href="#" class="social"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <span>or use your email for registration</span>
+      <input type="text" id="name" placeholder="Enter Your Restaurant Name" />
+      <input type="email" id="email" placeholder="Enter Your Restaurant Email" />
+      <input type="text" id="country" placeholder="Enter Your Country Name" />
+      <input type="text" id="city" placeholder="Enter Your City Name" />
+      <input type="password" id="password" placeholder="Create Your Password" />
+   
+      <button type="submit" class="btn btn-primary" onclick="; onSignUp(); ">Sign Up</button>
+      <a href="#signinForm"> I have an account</a>
+      <p class="para" id="login-success"></p>
+    </form>
+  </div>
+  <div class="form-container sign-in-container" id="signinForm"> 
+    <form onsubmit="return false" >
+      <h1>Creat Your Cutomer Account</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social"><i class="fab fa-google"></i></a>
+        <a href="#" class="social"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <span>or use your account</span>
+      <input type="text" id="username" placeholder="UserName" />
+      <input type="email" id="email" placeholder="Email" />
+      <input type="text" id="phone" placeholder="Phone" />
+      <input type="text" name="country" id="country" placeholder="Country">
+      <input type="text" name="city" id="city" placeholder="City">
+      <input type="password" name="password" id="password" placeholder="password">
+      
+      <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+      <a href="#">Forgot your password?</a>
+      <button type="submit" class="btn btn-primary" onclick="onSignUp()">Sign Up</button>
+       <p class="para" id="message"></p>
+    </form>
+  </div>
+
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Welcome User</h1>
+        <p>Please login with your personal info</p>
+        <button class="ghost" id="signIn">I am a Customer</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hello, Friend!</h1>
+        <p>Enter your personal details and start your journey with us</p>
+        <button class="ghost" id="signUp" onclick=" changePanel(); ">I am a Restaurant</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+
+  <!-- <div class="form">
+    <form onsubmit="return false">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" required placeholder="Enter Your Full Name">
+      </div>
+     
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" class="form-control" id="phone" aria-describedby="emailHelp" required placeholder="Enter Phone Number">
+      </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+       
+        <div class="form-group">
+          <label for="password">Create Password</label>
+          <input type="password" required class="form-control" id="password" placeholder="Password">
+        </div>
+       
+        <button type="submit" class="btn btn-primary" onclick=" onSignUp(); ">Sign Up</button>
+ <a href="login.html"> I have an account</a>
+ <p class="para" id="login-success"></p>
+      </form>
+  </div> -->
+
+
+    <script src="signupform/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
 
 </body>
 </html>
