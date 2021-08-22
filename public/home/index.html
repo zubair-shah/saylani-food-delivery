@@ -18,6 +18,31 @@
     <link rel="stylesheet" href="../assets/css/slick.css">
     <link rel="stylesheet" href="../assets/css/jquery-ui.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyB6SjbdKlHvKKVC0K8WwZG1KLBvXaQUDp4",
+    authDomain: "saylani-food-app.firebaseapp.com",
+    projectId: "saylani-food-app",
+    storageBucket: "saylani-food-app.appspot.com",
+    messagingSenderId: "425819328785",
+    appId: "1:425819328785:web:efaaf1ace52c3855fefcb0",
+    measurementId: "G-Y7HXJVLB4T"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+   
 </head>
 
 <body>
@@ -64,24 +89,16 @@
                     <div class="col-lg-6 d-none d-lg-block">
                         <nav id="mobile-menu">
                             <ul class="main-menu">
-                                <li><a href="#">home <span><i class="fas fa-angle-down"></i></span></a>
-                                    <ul class="submenu">
-                                        <li><a href="index.html">home-1</a></li>
-                                        <li><a href="homepage2.html">home-2</a></li>
-                                        <li><a href="homepage3.html">home-3</a></li>
-                                        <li><a href="homepage4.html">home-4</a></li>
-                                    </ul>
+                                <li><a href="#">home</a>
+                                   
                                 </li>
                                 <li><a href="about.html">about us</a></li>
                                 <li><a href="menu.html">menu</a></li>
-                                <li><a href="#">blog <span><i class="fas fa-angle-down"></i></span></a>
-                                    <ul class="submenu">
-                                        <li><a href="blog.html">blog</a></li>
-                                        <li><a href="blog-single.html">single blog</a></li>
-                                    </ul>
+                                <li><a href="#">blog</a>
+                                
                                 </li>
                                 <li><a href="#">pages <span><i class="fas fa-angle-down"></i></span></a>
-                                    <ul class="submenu">
+                                    <!-- <ul class="submenu">
                                         <li><a href="checkout.html">checkout page</a></li>
                                         <li><a href="single-dish.html">single dish page</a></li>
                                         <li><a href="food-page.html">food page</a></li>
@@ -92,7 +109,7 @@
                                         <li><a href="login.html">login page</a></li>
                                         <li><a href="signup.html">signup page</a></li>
                                         <li><a href="404.html">404 page</a></li>
-                                    </ul>
+                                    </ul> -->
                                 </li>
                                 <li><a href="contact.html">contact us</a></li>
                             </ul>
@@ -100,16 +117,14 @@
                     </div>
                     <div class="col-lg-4 col-md-9 col-8">
                         <div class="customer-area">
-                            <span>
-                                <a href="#"><i class="fas fa-heart"></i></a>
-                            </span>
+                            
                             <span>
                                 <a href="#"><i class="fas fa-user"></i></a>
                             </span>
                             <span>
                                 <a href="shopping-cart.html"><i class="fas fa-shopping-basket"></i></a>
                             </span>
-                            <a href="login.html" class="btn" >login</a>
+                            <button type="submit" class="btn" onclick="onLogout()">Logout</button>
                         </div>
                     </div>
                 </div>
@@ -2525,6 +2540,7 @@
     <script src="../assets/js/vendor/easing.min.js"></script>
     <script src="../assets/js/vendor/wow.min.js"></script>
     <script src="../assets/js/main.js"></script>
+    <script src="../signupform/app.js"></script>
 
 
 </body>

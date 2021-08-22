@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+     
+     <script>
+       // Your web app's Firebase configuration
+       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+       var firebaseConfig = {
+         apiKey: "AIzaSyB6SjbdKlHvKKVC0K8WwZG1KLBvXaQUDp4",
+         authDomain: "saylani-food-app.firebaseapp.com",
+         projectId: "saylani-food-app",
+         storageBucket: "saylani-food-app.appspot.com",
+         messagingSenderId: "425819328785",
+         appId: "1:425819328785:web:efaaf1ace52c3855fefcb0",
+         measurementId: "G-Y7HXJVLB4T"
+       };
+       // Initialize Firebase
+       firebase.initializeApp(firebaseConfig);
+       firebase.analytics();
+     </script>
+</script>
+    <style>
+      select {
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+  background-color:#3498DB;
+  background-repeat:no-repeat;
+  background-position: right 10px top 15px;
+  background-size: 16px 16px;
+  color:white;
+  padding:12px;
+  width:auto;
+  font-family:arial,tahoma;
+  font-size:16px;
+  font-weight:bold;
+  color:#fff;
+  text-align:center;
+  text-shadow:0 -1px 0 rgba(0, 0, 0, 0.25);
+  border-radius:3px;
+  -webkit-border-radius:3px;
+  -webkit-appearance: none;
+  border:0;
+  outline:0;
+  -webkit-transition:0.3s ease all;
+	   -moz-transition:0.3s ease all;
+	    -ms-transition:0.3s ease all;
+	     -o-transition:0.3s ease all;
+	        transition:0.3s ease all;
+}
+
+#blue {
+  background-color:#3498DB;
+}
+
+#blue:hover {
+  background-color:#2980B9;
+}
+
+#green {
+  background-color:#2ECC71;
+}
+
+#green:hover {
+  background-color:#27AE60;
+}
+
+#red {
+  background-color:#E74C3C;
+}
+
+#red:hover {
+  background-color:#C0392B;
+}
+
+select:focus, select:active {
+  border:0;
+  outline:0;
+}
+    </style>
+</head>
+<body onload="getCurrentUser();">
+  <div class="header">
+    <button class="btn navbar-btn" onclick="navbarBtn()">//</button>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+              <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="">
+              <p id="detial"></p>
+            </div>
+
+            <ul class="list-unstyled components">
+               
+                <li class="active">
+                    <a href="#homeSubmenu" id="FullName">Name</a>
+                   
+                </li>
+                <li>
+                    <a href="#" id="PhoneNumber">Phone</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" id="Email" >Email</a>
+                  
+                </li>
+           
+               
+            </ul>
+
+            <ul class=" CTAs">
+                <li><a href="#" class="download" id="message">Admin Login</a></li>
+                <li style="text-align: center;">
+                <button type="button" class="btn btn-danger" onclick="onLogout()">Logout</button>
+
+                </li>
+                
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+       
+        
+    </div>
+    </div>
+    <div class="col-md-8">
+  <div class="main-todo">
+    <div class="todo-form">
+      <form onsubmit="return false">
+        <div class="form-group">
+          <h3>Set Your Work with Your choice</h3>
+          <label for="formGroupExampleInput">Your Title here</label>
+          <input type="text" required class="form-control" id="titleInput" placeholder="Title input">
+          <label for="formGroupExampleInput">Your Discription here</label>
+          <input type="text" class="form-control" id="discriptionInput" placeholder="Discription input">
+        </div>
+
+        <button type="submit" class="btn btn-primary" onclick="todo();">create Todo</button>
+      </form>
+    </div>
+    <div class="row">
+      <div class="card-heading">
+        <h1>Your Todo List</h1>
+      </div>
+  <div class="row"  id="display">
+    <!-- <div class="col-md-4"><div class="mt-35px card-deck"><div class="card"><img src="https://media.istockphoto.com/photos/check-off-a-todo-list-with-a-black-pen-picture-id1212554542?k=6&amp;m=1212554542&amp;s=612x612&amp;w=0&amp;h=dAEORdxXuwjVzkuSvnqNfZaCD1mNq9dupvQzqyKooh8=" class="card-img-top"><div class="card-body"><h5 class="card-title"></h5><p class="card-text"></p></div><button id="delet" class="btn btn-danger " onclick="deletitem(this)">DELET</button></div></div></div> -->
+    </div>
+  </div>
+  <div class="row">
+    <select id="blue">
+      <optgroup label="Categories">
+        <option selected="selected">What a beauty day</option>
+        <option>I love Steve Jobs</option>
+        <option>PHP is awesome</option>
+        <option>I'm a Developer</option>
+      </optgroup>
+      
+      <optgroup label="Favorites">
+        <option>Facebook</option>
+        <option>Youtube</option>
+        <option>Stackoverflow</option>
+        <option>SublimeText</option>
+        <option>PHP&Jquery</option>
+      </optgroup>
+    </select>
+    
+    <select id="green">
+      <optgroup label="Categories">
+        <option>What a beauty day</option>
+        <option>I love Steve Jobs</option>
+        <option>PHP is awesome</option>
+        <option selected="selected">I'm a Developer</option>
+      </optgroup>
+      
+      <optgroup label="Favorites">
+        <option>Facebook</option>
+        <option>Youtube</option>
+        <option>Stackoverflow</option>
+        <option>SublimeText</option>
+        <option>PHP&Jquery</option>
+      </optgroup>
+    </select>
+    
+    <select id="red">
+      <optgroup label="Categories">
+        <option>What a beauty day</option>
+        <option>I love Steve Jobs</option>
+        <option selected="selected">PHP is awesome</option>
+        <option>I'm a Developer</option>
+      </optgroup>
+      
+      <optgroup label="Favorites">
+        <option>Facebook</option>
+        <option>Youtube</option>
+        <option>Stackoverflow</option>
+        <option>SublimeText</option>
+        <option>PHP&Jquery</option>
+      </optgroup>
+    </select>
+  </div>
+      
+  
+    </div>
+  </div>
+     
+      
+       
+    
+
+    </div>
+  </div>
+
+          <script src="app.js"></script> 
+          
+</body>
+</html>

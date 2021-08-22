@@ -60,7 +60,7 @@ a, a:hover, a:focus {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #cc3333;
+    background: #fff8ee;
     color: #fff;
     transition: all 0.3s;
 }
@@ -165,7 +165,7 @@ a.article, a.article:hover {
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap");
 
 :root {
-  --main-color: #cc3333;
+  --main-color:#cc3333;
   --secondary-color: #cc3333;
   --gradient: linear-gradient(
     135deg,
@@ -435,8 +435,8 @@ input {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
-    height: 740px;
-    width: 800px;
+    height: 590px;
+    width: 672px;
     max-width: 100%;
   }
 

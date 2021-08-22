@@ -1,12 +1,100 @@
 
 
+// =====================MY-js=================
+
+
+// firebase.auth().onAuthStateChanged((user)=>{
+//   if(user){
+//       location.replace("home/index.html")
+//   }
+// })
+
+function onSignup(){
+  const email = document.getElementById("email").value
+  const password = document.getElementById("password").value
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then( ()=>{
+    location.replace("home/login.html")
+  })
+  .catch((error) => {
+      document.getElementById("error").innerHTML = error.message
+  });
+}
+function onLogin(){
+  const email = document.getElementById("email").value
+  const password = document.getElementById("password").value
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then( ()=>{
+    location.replace("index.html")
+  })
+  .catch((error)=>{
+      document.getElementById("error").innerHTML = error.message
+  })
+}
+
+function onResSignup(){
+  const email = document.getElementById("resemail").value
+  const password = document.getElementById("respassword").value
+  firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then( ()=>{
+    location.replace("home/dashboard.html")
+  })
+  .catch((error) => {
+      document.getElementById("error").innerHTML = error.message
+  });
+}
+function onResLogin(){
+  const email = document.getElementById("email").value
+  const password = document.getElementById("password").value
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then( ()=>{
+    location.replace("index.html")
+  })
+  .catch((error)=>{
+      document.getElementById("error").innerHTML = error.message
+  })
+}
+
+
+function onLogout(){
+  var message = document.getElementById("message");
+  firebase.auth().signOut().then(function() {
+    // message.innerHTML="Good Bye"
+    console.log('Signed Out');
+    location.replace("../index.html")
+  }, function(error) {
+    console.error('Sign Out Error', error);
+  });
+
+} 
+
+
+function forgotPass(){
+  const email = document.getElementById("email").value
+  firebase.auth().sendPasswordResetEmail(email)
+  .then(() => {
+      alert("Reset link sent to your email id")
+  })
+  .catch((error) => {
+      document.getElementById("error").innerHTML = error.message
+  });
+}
 
 
 
 
+// firebase.auth().onAuthStateChanged((user)=>{
+//   if(!user){
+//       location.replace("index.html")
+//   }else{
+//       document.getElementById("user").innerHTML = "Hello, "+user.email
+//   }
+// })
 
 
-
+function logout(){
+  firebase.auth().signOut()
+}
 
 
 
@@ -88,116 +176,116 @@ const empty = () => {
 
 //===============function-onlogin==============
 
-const onLogin = () => {
+// const onLogin = () => {
 
-  var email = document.getElementById("email")
-  var password = document.getElementById("password")
-  var message = document.getElementById("message")
+//   var email = document.getElementById("email")
+//   var password = document.getElementById("password")
+//   var message = document.getElementById("message")
 
  
 
-var user = {
-   email:email.value,
-   password:password.value
-}
-// firebase.auth().createUserWithEmailAndPassword(email, password)
-//   .then((userCredential) => {
-//     // Signed in 
-//     console.log(userCredential)
-//     var user = userCredential.user;
-//     // ...
-//   })
-//   .catch((error) => {
-//     var errorCode = error.code;
-//     var errorMessage = error.message;
-//     // ..
-//   });
-// var users = JSON.parse(localStorage.getItem("users"))
-// if (email.value == null || email.value == "" && password.value == null || password.value == "") {
-//   alert("Please Enter your Email and  Password");
-//   return false;
+// var user = {
+//    email:email.value,
+//    password:password.value
+// }
+// // firebase.auth().createUserWithEmailAndPassword(email, password)
+// //   .then((userCredential) => {
+// //     // Signed in 
+// //     console.log(userCredential)
+// //     var user = userCredential.user;
+// //     // ...
+// //   })
+// //   .catch((error) => {
+// //     var errorCode = error.code;
+// //     var errorMessage = error.message;
+// //     // ..
+// //   });
+// // var users = JSON.parse(localStorage.getItem("users"))
+// // if (email.value == null || email.value == "" && password.value == null || password.value == "") {
+// //   alert("Please Enter your Email and  Password");
+// //   return false;
 
+// // }
+
+// var currentUser = users.find(function (val) {
+//   return val.email.toLowerCase() === user.email.toLowerCase() && val.password.toLowerCase() === user.password.toLowerCase()  
+// })
+// if (currentUser) {
+//   localStorage.setItem("user", JSON.stringify(currentUser))
+//  message.innerHTML = "successfully Login"
+ 
+// }
+// else{
+//   message.innerHTML = "Invalid cridential"
+//   return false;
 // }
 
-var currentUser = users.find(function (val) {
-  return val.email.toLowerCase() === user.email.toLowerCase() && val.password.toLowerCase() === user.password.toLowerCase()  
-})
-if (currentUser) {
-  localStorage.setItem("user", JSON.stringify(currentUser))
- message.innerHTML = "successfully Login"
- 
-}
-else{
-  message.innerHTML = "Invalid cridential"
-  return false;
-}
-
-setTimeout( () =>{
-  message.innerHTML = "";
-  // container.classList.add("right-panel-active");
-  location.href = "home/index.html"
-},
-2000
-  );
+// setTimeout( () =>{
+//   message.innerHTML = "";
+//   // container.classList.add("right-panel-active");
+//   location.href = "home/index.html"
+// },
+// 2000
+//   );
 
 
-}
+// }
 
 
 
 //===============function-getCurrentUser==============
-const getCurrentUser = () => {
-  var detial = document.getElementById("detial");
-  let fullName = document.getElementById("FullName")
-  let phoneNumber = document.getElementById("PhoneNumber")
-  let email = document.getElementById("Email")
-  var user = JSON.parse(localStorage.getItem("user"));
-  detial.innerHTML = "Welcome " + "\n" +user.name;
-  fullName.innerHTML = "Full Name :" + "\n" +user.name;
-  phoneNumber.innerHTML = "Phone :" + "\n" +user.phone;
-  email.innerHTML = "Email :" + "\n" +user.email;
-}
+// const getCurrentUser = () => {
+//   var detial = document.getElementById("detial");
+//   let fullName = document.getElementById("FullName")
+//   let phoneNumber = document.getElementById("PhoneNumber")
+//   let email = document.getElementById("Email")
+//   var user = JSON.parse(localStorage.getItem("user"));
+//   detial.innerHTML = "Welcome " + "\n" +user.name;
+//   fullName.innerHTML = "Full Name :" + "\n" +user.name;
+//   phoneNumber.innerHTML = "Phone :" + "\n" +user.phone;
+//   email.innerHTML = "Email :" + "\n" +user.email;
+// }
 
 // ============todo-list=============
 // var display = document.getElementById("display")
 
-const todo = () =>{
+// const todo = () =>{
 
-// ------------------taking-input-from-users-------------------
+// // ------------------taking-input-from-users-------------------
 
-var title = document.getElementById("titleInput");
-var discription = document.getElementById("discriptionInput");
+// var title = document.getElementById("titleInput");
+// var discription = document.getElementById("discriptionInput");
 
-if (title.value ==="" && discription.value === "") {
-  alert("plz enter your Title and discription")
-  return false;
-}
-// JSON.parse(localStorage.getItem(createCard));
-//  =============by-template-literal-method===============
-let createCard= document.getElementById("display");
-createCard.innerHTML += ` <div class="col-md-4"><div class="mt-35px card-deck"><div class="card"><img src="https://media.istockphoto.com/photos/check-off-a-todo-list-with-a-black-pen-picture-id1212554542?k=6&amp;m=1212554542&amp;s=612x612&amp;w=0&amp;h=dAEORdxXuwjVzkuSvnqNfZaCD1mNq9dupvQzqyKooh8=" class="card-img-top"><div class="card-body"><h5 class="card-title">${title.value}</h5><p class="card-text">${discription.value}</p></div></div></div><button id="delet" class="btn btn-danger " onclick="deletitem(this)">DELET</button></div>`
- localStorage.setItem("createCard",createCard)
- localStorage.getItem(createCard)
- console.log(createCard)
-// var ForDatabase = {
-//   title:title.value, 
-//   discription:discription.value
+// if (title.value ==="" && discription.value === "") {
+//   alert("plz enter your Title and discription")
+//   return false;
 // }
+// // JSON.parse(localStorage.getItem(createCard));
+// //  =============by-template-literal-method===============
+// let createCard= document.getElementById("display");
+// createCard.innerHTML += ` <div class="col-md-4"><div class="mt-35px card-deck"><div class="card"><img src="https://media.istockphoto.com/photos/check-off-a-todo-list-with-a-black-pen-picture-id1212554542?k=6&amp;m=1212554542&amp;s=612x612&amp;w=0&amp;h=dAEORdxXuwjVzkuSvnqNfZaCD1mNq9dupvQzqyKooh8=" class="card-img-top"><div class="card-body"><h5 class="card-title">${title.value}</h5><p class="card-text">${discription.value}</p></div></div></div><button id="delet" class="btn btn-danger " onclick="deletitem(this)">DELET</button></div>`
+//  localStorage.setItem("createCard",createCard)
+//  localStorage.getItem(createCard)
+//  console.log(createCard)
+// // var ForDatabase = {
+// //   title:title.value, 
+// //   discription:discription.value
+// // }
 
 
-  // ----------------------after-creating-1-div-input-value-remove--------------------
-  title.value = ""
-  discription.value = ""
+//   // ----------------------after-creating-1-div-input-value-remove--------------------
+//   title.value = ""
+//   discription.value = ""
   
-  // firebase.database().ref("students/student1").push(ForDatabase)
-  firebase.database().ref('students/student1').on('child_added', function(data){
+//   // firebase.database().ref("students/student1").push(ForDatabase)
+//   firebase.database().ref('students/student1').on('child_added', function(data){
 
-       console.log(data.val())
-  })
+//        console.log(data.val())
+//   })
 
   
   
-}
+// }
  
 //   // -------------------creating-div-element------------------
 //   var divColumn = document.createElement('div');
@@ -264,9 +352,9 @@ createCard.innerHTML += ` <div class="col-md-4"><div class="mt-35px card-deck"><
 
 
 // ---------------------------delet-value---------------------
-const deletitem = (e) =>{
-  e.parentNode.remove()
-}
+// const deletitem = (e) =>{
+//   e.parentNode.remove()
+// }
 // ----------------------------edit-value----------------------------
 // function edititem(e){
     
@@ -276,19 +364,19 @@ const deletitem = (e) =>{
 
 // }
 
-const deletall = () => list.innerHTML="";
-// ===============function-logout=======================
-const onLogout = () => {
-  var message = document.getElementById("message");
-  localStorage.removeItem("user");
-  message.innerHTML = "Good Bye.!";
-  // clear state
-  setTimeout(() => {
-    message.innerHTML = "";
-    location.href = "index.html"
-  }, 3000);
+// const deletall = () => list.innerHTML="";
+// // ===============function-logout=======================
+// const onLogout = () => {
+//   var message = document.getElementById("message");
+//   localStorage.removeItem("user");
+//   message.innerHTML = "Good Bye.!";
+//   // clear state
+//   setTimeout(() => {
+//     message.innerHTML = "";
+//     location.href = "index.html"
+//   }, 3000);
 
-} 
+// } 
 
 
 
@@ -305,3 +393,8 @@ const onLogout = () => {
 //       $('a[aria-expanded=true]').attr('aria-expanded', 'false');
 //   });
 // });
+
+
+
+
+
