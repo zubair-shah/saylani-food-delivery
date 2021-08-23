@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <!------ Include the above in your HEAD tag ---------->
-    <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <link rel="stylesheet" href="dashboard.css">
      <!-- The core Firebase JS SDK is always required and must be listed first -->
      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
@@ -84,7 +84,9 @@
 #red:hover {
   background-color:#C0392B;
 }
-
+.tablebox .ta-center{
+  text-align: center;
+}
 select:focus, select:active {
   border:0;
   outline:0;
@@ -102,7 +104,7 @@ select:focus, select:active {
         <nav id="sidebar">
             <div class="sidebar-header">
               <img src="https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg" alt="">
-              <p id="detial"></p>
+              <p id="detail"></p>
             </div>
 
             <ul class="list-unstyled components">
@@ -158,57 +160,51 @@ select:focus, select:active {
     <!-- <div class="col-md-4"><div class="mt-35px card-deck"><div class="card"><img src="https://media.istockphoto.com/photos/check-off-a-todo-list-with-a-black-pen-picture-id1212554542?k=6&amp;m=1212554542&amp;s=612x612&amp;w=0&amp;h=dAEORdxXuwjVzkuSvnqNfZaCD1mNq9dupvQzqyKooh8=" class="card-img-top"><div class="card-body"><h5 class="card-title"></h5><p class="card-text"></p></div><button id="delet" class="btn btn-danger " onclick="deletitem(this)">DELET</button></div></div></div> -->
     </div>
   </div>
-  <div class="row">
-    <select id="blue">
-      <optgroup label="Categories">
-        <option selected="selected">What a beauty day</option>
-        <option>I love Steve Jobs</option>
-        <option>PHP is awesome</option>
-        <option>I'm a Developer</option>
-      </optgroup>
+  <div class="row tablebox">
+    <div class="category ta-center">
+      <h4>Select your Categories</h4>
+      <select id="blue">
       
-      <optgroup label="Favorites">
-        <option>Facebook</option>
-        <option>Youtube</option>
-        <option>Stackoverflow</option>
-        <option>SublimeText</option>
-        <option>PHP&Jquery</option>
-      </optgroup>
-    </select>
+        <optgroup label="Categories"> 
+         
+       
+          <option selected="selected">chinese item</option>
+          <option>singaporean item</option>
+          <option>desi items</option>
+          <option>european items</option>
+        </optgroup>
+        
+      </select>
+    </div>
+    <div class="itemName ta-center">
+      <h4 for="formGroupExampleInput">item Name </h4>
+      <input type="text" required class="form-control" id="titleInput" placeholder="Item Name">
+    </div>
+    <div class="price ta-center ">
+      <h4 for="formGroupExampleInput">price </h4>
+      <input type="text" required class="form-control" id="titleInput" placeholder="Item Name">
+    </div>
+    <div class="category ta-center">
+      <h4>Delivery Type</h4>
+      <select id="green">
+      
+        <optgroup > 
+         
+       
+          <option selected="selected">Paid</option>
+          <option>Free</option>
+         
+        </optgroup>
+        
+      </select>
+    </div>
+    <div class="category ta-center">
+      <h4>Item Image</h4>
+      <input type="file" name="itemimage" id="itemImage">
+    </div>
     
-    <select id="green">
-      <optgroup label="Categories">
-        <option>What a beauty day</option>
-        <option>I love Steve Jobs</option>
-        <option>PHP is awesome</option>
-        <option selected="selected">I'm a Developer</option>
-      </optgroup>
-      
-      <optgroup label="Favorites">
-        <option>Facebook</option>
-        <option>Youtube</option>
-        <option>Stackoverflow</option>
-        <option>SublimeText</option>
-        <option>PHP&Jquery</option>
-      </optgroup>
-    </select>
     
-    <select id="red">
-      <optgroup label="Categories">
-        <option>What a beauty day</option>
-        <option>I love Steve Jobs</option>
-        <option selected="selected">PHP is awesome</option>
-        <option>I'm a Developer</option>
-      </optgroup>
-      
-      <optgroup label="Favorites">
-        <option>Facebook</option>
-        <option>Youtube</option>
-        <option>Stackoverflow</option>
-        <option>SublimeText</option>
-        <option>PHP&Jquery</option>
-      </optgroup>
-    </select>
+   
   </div>
       
   

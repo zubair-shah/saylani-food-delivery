@@ -37,7 +37,7 @@ function onResSignup(){
   const password = document.getElementById("respassword").value
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then( ()=>{
-    location.replace("home/dashboard.html")
+    location.replace("dashboard/dashboard.html")
   })
   .catch((error) => {
       document.getElementById("error").innerHTML = error.message
